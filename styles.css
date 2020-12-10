@@ -1,6 +1,8 @@
-body {
+body{
     overflow-x: hidden; /* Hide horizontal scrollbar */
-    font-family: "Quest"
+    font-family: "Quest";
+    height: 100vh;
+    position: fixed;
   }
 
 /* TOP BANNER */
@@ -21,8 +23,8 @@ h3.score2{
 /* GAME BOARD */
 /* ========== */
 .gem{
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin-right: 1vw;
+    margin-left: 1vw;
     width: 4vw;
     height: 4vw;
     border-radius: 50%;
@@ -32,6 +34,10 @@ h3.score2{
 
 .card{
     border: 1px solid;
+}
+
+.row{
+    padding-bottom: 10vh;
 }
 
 .cardRow{
@@ -50,20 +56,16 @@ h3.score2{
 }
 .nobleCard{
     height: 8vh;
-    width: 12rem;
-    padding-top: 0.25rem;
+    width: 12vw;
+    padding-top: 0.25vh;
 }
 
 /* PLAYER BOARDS */
 /* ============= */
 .playerCard{
     height: 15%;
-    margin-left: 0px;
-    margin-right: 0px;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    padding-left: 0px;
-    padding-right: 0px;
     text-align: center;
 }
 
