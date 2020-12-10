@@ -1,0 +1,106 @@
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    font-family: "Quest"
+  }
+
+/* TOP BANNER */
+/* ========== */
+.topButt{
+    height: 6vh;
+    width: 6vw;
+}
+
+h3.score1{
+    margin-left: 4vw;
+}
+
+h3.score2{
+    margin-right: 4vw;
+}
+
+/* GAME BOARD */
+/* ========== */
+.gem{
+    margin-right: 1rem;
+    margin-left: 1rem;
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    border: 1px groove #e6e6e6;
+    color: black;
+}
+
+.card{
+    border: 1px solid;
+}
+
+.cardRow{
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+}
+
+.boardCard{
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.gemCard{
+    height: 19vh;
+    width: 7.5vw;
+}
+.nobleCard{
+    height: 8vh;
+    width: 12rem;
+    padding-top: 0.25rem;
+}
+
+/* PLAYER BOARDS */
+/* ============= */
+.playerCard{
+    height: 15%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+}
+
+.playerGem{
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    border: 1px groove #e6e6e6;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    color: black;
+    font-size: 2rem;
+}
+
+/* COIN COLORS */
+/* =========== */
+.wild{
+    background-color: #FFE349;
+}
+
+.blue{
+    background-color: #38A2EE;
+}
+
+.red{
+    background-color: #F9363E;
+}
+
+.green{
+    background-color: #15BB7B;
+}
+
+.brown{
+    background-color: #51373D;
+}
+
+.white{
+    background-color: #FFFCF6;
+}
+
