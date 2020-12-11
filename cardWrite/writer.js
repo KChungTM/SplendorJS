@@ -245,6 +245,7 @@ function writeToJSON(masterDeck, nobles){
     if(fileExist){
         let importDeck = JSON.parse(fs.readFileSync("./masterDeck.json", "utf-8"));
 
+        // ITERATES THROUGH KEYS AND PUSHES NEW CARDS/NOBLES
         Object.keys(masterDeck).forEach(attr => {
             masterDeck[attr].forEach(elem => {
                 importDeck[attr].push(elem);
