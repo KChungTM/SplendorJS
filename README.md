@@ -10,6 +10,7 @@
  CSS: Refresher<br>
  JavaScript: Promises, Async/Await, JSON Data Storage, Object Manipulation<br>
  
- P.S: I hope the window works ok for whoever decides to play it. I looks fine on my screen but my knowledge of breakpoints and sizing HTML elements proportionally is pretty abysmal so knock yourself out.
+<h5>P.S:</h5>
+I hope the window works ok for whoever decides to play it. I looks fine on my screen but my knowledge of breakpoints and sizing HTML elements proportionally is pretty abysmal so knock yourself out.
  
  
