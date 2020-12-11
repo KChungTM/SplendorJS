@@ -1,10 +1,9 @@
 // IMPORTS
 // =======
-// Import File System
-const { RSA_X931_PADDING } = require("constants");
+// IMPORT FS
 const fs = require("fs");
-const { resolve } = require("path");
-// Import Line Reader and Initialize Necessary Stuff
+
+// IMPORT LINE READER AND NECESSARY STUFF
 const readline = require("readline");
 const rl = readline.createInterface({
     input: process.stdin,
@@ -13,15 +12,15 @@ const rl = readline.createInterface({
 
 // MAIN FUNCTION THAT CALLS CARDS/NOBLES
 async function splendorWrite(){
-    // COMPILE DECK AND NOBLES
+    // COMPILES DECK AND NOBLES
     deck = await gatherCardValues();
     nobles = await gatherNobles();
 
-    // COMBINE DECK/NOBLE AND WRITE TO JSON
+    // COMBINES DECK/NOBLE AND WRITE TO JSON
     writeToJSON(deck, nobles)
     console.log("=========================================")
     console.log("DONE CREATING MASTERDECK JSON............");
-    console.log("=========================================\n\n\n")
+    console.log("=========================================")
     rl.close();
 }
 
@@ -36,8 +35,6 @@ async function gatherNobles(){
     //INIT NOBLE DECK
     const nobleDeck = {nobles:[]};
     let nobleInfo = true;
-    console.log(nobleDeck.nobles);
-    console.log("CHECKPOINT 1");
 
     // ENTER INFO TO CREATE NOBLES
     while(nobleInfo){
@@ -146,7 +143,7 @@ async function getCardInfo(){
             }
             else{
                 rl.question("Card Level?: ", function(level){
-                    if(notValidLevel(parseInt(level))){
+                    if(notValidLevel(level)){
                         console.log(`[INVALID LEVEL: ${level}]`);
                         resolve("invalid");
                     }
@@ -200,9 +197,11 @@ function notValidColor(color){
 
 // CHECKS IF LEVEL IS VALID
 function notValidLevel(level){
-    if(level > 3 || level < 0)
-        return true;
-    return false;
+    if (level.trim().length === 1){
+        if(level > 0 && level < 4)
+            return false;
+    }
+    return true;
 }
 
 // CHECKS IF COST IS VALID
@@ -227,32 +226,71 @@ function notValidPoint(points){
 
 // FUNCTION TO WRITE JSON
 function writeToJSON(masterDeck, nobles){
+    const path = "./masterDeck.json"
+    let fileExist = false;
+
     // COMBINE MY NOBLES KEY WITH DECK OBJECT
     masterDeck["nobles"] = nobles["nobles"];
 
-    console.log("=========================================")
-    console.log("STRINGIFYING THE JS.....................");
-    console.log("=========================================\n\n\n")
+    // CHECKS DIRECTORY TO SEE IF FILE EXIST
+    try{
+        if(fs.existsSync(path))
+            fileExist = true;
+    } catch (err){
+        console.log(err);
+    }
 
-    // STRINGIFY MY DECK AND USE FUNCTION TO MAKE IT PRETTY
-    let jsonVer = JSON.stringify(masterDeck,function(a,b){
-        if(a === "cost" || b === "nobles")
-            return JSON.stringify(b);
-        return b;
-    },"\t").replace(/\\/g, '')
-    .replace(/\"\[/g, '[')
-    .replace(/\]\"/g,']')
-    .replace(/\"\{/g, '{')
-    .replace(/\}\"/g,'}');
+    // IF FILE EXIST: APPEND CARDS
+    // ELSE: CREATE A NEW FILE
+    if(fileExist){
+        let importDeck = JSON.parse(fs.readFileSync("./masterDeck.json", "utf-8"));
 
-    console.log("=========================================")
-    console.log("WRITING THE JSON FILE....................");
-    console.log("=========================================\n\n\n")
+        Object.keys(masterDeck).forEach(attr => {
+            masterDeck[attr].forEach(elem => {
+                importDeck[attr].push(elem);
+            });
+        });
+        
+        let jsonVer = JSON.stringify(importDeck,function(a,b){
+            if(a === "cost" || b === "nobles")
+                return JSON.stringify(b);
+            return b;
+        },"\t").replace(/\\/g, '')
+        .replace(/\"\[/g, '[')
+        .replace(/\]\"/g,']')
+        .replace(/\"\{/g, '{')
+        .replace(/\}\"/g,'}');
 
-    // WRITES IN "MasterDeck.json"
-    fs.writeFile("masterDeck.json", jsonVer, function(err, result) {
-        if(err) console.log('error', err);
-    }); 
+
+        fs.writeFile("masterDeck.json", jsonVer, function(err, result) {
+            if(err) console.log('error', err);
+        }); 
+    }
+    else{
+        console.log("=========================================")
+        console.log("STRINGIFYING THE JS.....................");
+        console.log("=========================================\n\n\n")
+
+        // STRINGIFY MY DECK AND USE FUNCTION TO MAKE IT PRETTY
+        let jsonVer = JSON.stringify(masterDeck,function(a,b){
+            if(a === "cost" || b === "nobles")
+                return JSON.stringify(b);
+            return b;
+        },"\t").replace(/\\/g, '')
+        .replace(/\"\[/g, '[')
+        .replace(/\]\"/g,']')
+        .replace(/\"\{/g, '{')
+        .replace(/\}\"/g,'}');
+
+        console.log("=========================================")
+        console.log("WRITING THE JSON FILE....................");
+        console.log("=========================================\n\n\n")
+
+        // WRITES IN "MasterDeck.json"
+        fs.writeFile("masterDeck.json", jsonVer, function(err, result) {
+            if(err) console.log('error', err);
+        }); 
+    }
 }
 
 // CARD OBJECT

@@ -1,0 +1,596 @@
+{
+	"tier1": [
+		{
+			"color": "brown",
+			"level": 1,
+			"cost": [4,0,0,0,0],
+			"points": 1
+		},
+		{
+			"color": "brown",
+			"level": 1,
+			"cost": [1,1,1,0,1],
+			"points": 0
+		},
+		{
+			"color": "brown",
+			"level": 1,
+			"cost": [0,0,2,0,2],
+			"points": 0
+		},
+		{
+			"color": "white",
+			"level": 1,
+			"cost": [1,1,1,1,0],
+			"points": 0
+		},
+		{
+			"color": "white",
+			"level": 1,
+			"cost": [0,2,0,1,0],
+			"points": 0
+		},
+		{
+			"color": "blue",
+			"level": 1,
+			"cost": [0,1,1,1,1],
+			"points": 0
+		},
+		{
+			"color": "green",
+			"level": 1,
+			"cost": [0,0,0,4,0],
+			"points": 1
+		},
+		{
+			"color": "red",
+			"level": 1,
+			"cost": [1,0,1,1,1],
+			"points": 0
+		},
+		{
+			"color": "blue",
+			"level": 1,
+			"cost": [1,1,3,0,0],
+			"points": 0
+		},
+		{
+			"color": "blue",
+			"level": 1,
+			"cost": [0,0,2,2,0],
+			"points": 0
+		},
+		{
+			"color": "red",
+			"level": 1,
+			"cost": [0,1,0,3,1],
+			"points": 0
+		},
+		{
+			"color": "blue",
+			"level": 1,
+			"cost": [0,4,0,0,0],
+			"points": 1
+		},
+		{
+			"color": "white",
+			"level": 1,
+			"cost": [1,1,2,1,0],
+			"points": 0
+		},
+		{
+			"color": "white",
+			"level": 1,
+			"cost": [3,0,0,0,0],
+			"points": 0
+		},
+		{
+			"color": "white",
+			"level": 1,
+			"cost": [2,0,2,1,0],
+			"points": 0
+		},
+		{
+			"color": "blue",
+			"level": 1,
+			"cost": [0,2,2,0,1],
+			"points": 0
+		},
+		{
+			"color": "red",
+			"level": 1,
+			"cost": [2,0,1,0,0],
+			"points": 0
+		},
+		{
+			"color": "red",
+			"level": 1,
+			"cost": [0,0,0,0,4],
+			"points": 1
+		},
+		{
+			"color": "red",
+			"level": 1,
+			"cost": [0,0,1,2,2],
+			"points": 0
+		},
+		{
+			"color": "white",
+			"level": 1,
+			"cost": [0,0,4,0,0],
+			"points": 1
+		},
+		{
+			"color": "green",
+			"level": 1,
+			"cost": [3,0,1,0,1],
+			"points": 0
+		},
+		{
+			"color": "green",
+			"level": 1,
+			"cost": [1,1,0,2,1],
+			"points": 0
+		},
+		{
+			"color": "blue",
+			"level": 1,
+			"cost": [0,2,1,1,1],
+			"points": 0
+		},
+		{
+			"color": "green",
+			"level": 1,
+			"cost": [2,2,0,0,0],
+			"points": 0
+		},
+		{
+			"color": "brown",
+			"level": 1,
+			"cost": [0,1,2,0,0],
+			"points": 0
+		},
+		{
+			"color": "white",
+			"level": 1,
+			"cost": [2,0,0,2,0],
+			"points": 0
+		},
+		{
+			"color": "white",
+			"level": 1,
+			"cost": [1,0,0,1,3],
+			"points": 0
+		},
+		{
+			"color": "red",
+			"level": 1,
+			"cost": [1,0,1,1,2],
+			"points": 0
+		},
+		{
+			"color": "brown",
+			"level": 1,
+			"cost": [0,3,1,1,0],
+			"points": 0
+		},
+		{
+			"color": "red",
+			"level": 1,
+			"cost": [0,2,0,0,2],
+			"points": 0
+		},
+		{
+			"color": "red",
+			"level": 1,
+			"cost": [0,0,0,0,3],
+			"points": 0
+		},
+		{
+			"color": "blue",
+			"level": 1,
+			"cost": [0,0,0,3,0],
+			"points": 0
+		},
+		{
+			"color": "green",
+			"level": 1,
+			"cost": [1,1,0,1,1],
+			"points": 0
+		},
+		{
+			"color": "brown",
+			"level": 1,
+			"cost": [2,1,0,0,2],
+			"points": 0
+		},
+		{
+			"color": "brown",
+			"level": 1,
+			"cost": [0,0,3,0,0],
+			"points": 0
+		},
+		{
+			"color": "green",
+			"level": 1,
+			"cost": [1,2,0,2,0],
+			"points": 0
+		},
+		{
+			"color": "green",
+			"level": 1,
+			"cost": [0,3,0,0,0],
+			"points": 0
+		},
+		{
+			"color": "brown",
+			"level": 1,
+			"cost": [2,1,1,0,1],
+			"points": 0
+		},
+		{
+			"color": "green",
+			"level": 1,
+			"cost": [1,0,0,0,2],
+			"points": 0
+		},
+		{
+			"color": "blue",
+			"level": 1,
+			"cost": [0,0,0,2,1],
+			"points": 0
+		},
+		{
+			"color": "red",
+			"level": 1,
+			"cost": [0,0,0,2,1],
+			"points": 0
+		}
+	],
+	"tier2": [
+		{
+			"color": "brown",
+			"level": 2,
+			"cost": [0,0,0,0,5],
+			"points": 2
+		},
+		{
+			"color": "green",
+			"level": 2,
+			"cost": [2,0,0,1,4],
+			"points": 2
+		},
+		{
+			"color": "green",
+			"level": 2,
+			"cost": [0,0,6,0,0],
+			"points": 3
+		},
+		{
+			"color": "blue",
+			"level": 2,
+			"cost": [6,0,0,0,0],
+			"points": 3
+		},
+		{
+			"color": "blue",
+			"level": 2,
+			"cost": [2,0,3,3,0],
+			"points": 1
+		},
+		{
+			"color": "red",
+			"level": 2,
+			"cost": [0,6,0,0,0],
+			"points": 3
+		},
+		{
+			"color": "brown",
+			"level": 2,
+			"cost": [0,0,3,2,3],
+			"points": 1
+		},
+		{
+			"color": "red",
+			"level": 2,
+			"cost": [0,0,0,5,0],
+			"points": 2
+		},
+		{
+			"color": "blue",
+			"level": 2,
+			"cost": [0,1,0,4,2],
+			"points": 2
+		},
+		{
+			"color": "white",
+			"level": 2,
+			"cost": [0,2,3,2,0],
+			"points": 1
+		},
+		{
+			"color": "green",
+			"level": 2,
+			"cost": [5,0,3,0,0],
+			"points": 2
+		},
+		{
+			"color": "white",
+			"level": 2,
+			"cost": [0,0,0,0,6],
+			"points": 3
+		},
+		{
+			"color": "brown",
+			"level": 2,
+			"cost": [0,3,5,0,0],
+			"points": 2
+		},
+		{
+			"color": "blue",
+			"level": 2,
+			"cost": [3,0,0,0,5],
+			"points": 2
+		},
+		{
+			"color": "green",
+			"level": 2,
+			"cost": [3,0,0,2,2],
+			"points": 1
+		},
+		{
+			"color": "white",
+			"level": 2,
+			"cost": [0,5,0,3,0],
+			"points": 2
+		},
+		{
+			"color": "green",
+			"level": 2,
+			"cost": [0,3,2,0,3],
+			"points": 1
+		},
+		{
+			"color": "blue",
+			"level": 2,
+			"cost": [5,0,0,0,0],
+			"points": 2
+		},
+		{
+			"color": "red",
+			"level": 2,
+			"cost": [4,0,2,0,1],
+			"points": 2
+		},
+		{
+			"color": "red",
+			"level": 2,
+			"cost": [3,2,0,3,0],
+			"points": 1
+		},
+		{
+			"color": "brown",
+			"level": 2,
+			"cost": [1,2,4,0,0],
+			"points": 2
+		},
+		{
+			"color": "brown",
+			"level": 2,
+			"cost": [0,0,0,6,0],
+			"points": 3
+		},
+		{
+			"color": "white",
+			"level": 2,
+			"cost": [0,5,0,0,0],
+			"points": 2
+		},
+		{
+			"color": "red",
+			"level": 2,
+			"cost": [0,0,0,5,3],
+			"points": 2
+		},
+		{
+			"color": "blue",
+			"level": 2,
+			"cost": [2,3,2,0,0],
+			"points": 1
+		},
+		{
+			"color": "green",
+			"level": 2,
+			"cost": [0,0,5,0,0],
+			"points": 2
+		},
+		{
+			"color": "brown",
+			"level": 2,
+			"cost": [2,0,2,0,3],
+			"points": 1
+		},
+		{
+			"color": "red",
+			"level": 2,
+			"cost": [0,2,0,3,2],
+			"points": 1
+		},
+		{
+			"color": "white",
+			"level": 2,
+			"cost": [0,4,1,2,0],
+			"points": 2
+		},
+		{
+			"color": "white",
+			"level": 2,
+			"cost": [3,3,0,0,2],
+			"points": 1
+		}
+	],
+	"tier3": [
+		{
+			"color": "green",
+			"level": 3,
+			"cost": [6,0,3,0,3],
+			"points": 4
+		},
+		{
+			"color": "red",
+			"level": 3,
+			"cost": [5,0,3,3,3],
+			"points": 3
+		},
+		{
+			"color": "white",
+			"level": 3,
+			"cost": [0,3,0,6,3],
+			"points": 4
+		},
+		{
+			"color": "brown",
+			"level": 3,
+			"cost": [3,3,5,0,3],
+			"points": 3
+		},
+		{
+			"color": "blue",
+			"level": 3,
+			"cost": [0,3,3,5,3],
+			"points": 3
+		},
+		{
+			"color": "green",
+			"level": 3,
+			"cost": [7,0,3,0,0],
+			"points": 5
+		},
+		{
+			"color": "white",
+			"level": 3,
+			"cost": [3,5,3,3,0],
+			"points": 3
+		},
+		{
+			"color": "brown",
+			"level": 3,
+			"cost": [0,6,3,3,0],
+			"points": 4
+		},
+		{
+			"color": "red",
+			"level": 3,
+			"cost": [0,0,7,0,0],
+			"points": 4
+		},
+		{
+			"color": "red",
+			"level": 3,
+			"cost": [3,3,6,0,0],
+			"points": 4
+		},
+		{
+			"color": "green",
+			"level": 3,
+			"cost": [7,0,0,0,0],
+			"points": 4
+		},
+		{
+			"color": "blue",
+			"level": 3,
+			"cost": [3,0,0,0,7],
+			"points": 5
+		},
+		{
+			"color": "blue",
+			"level": 3,
+			"cost": [0,0,0,0,7],
+			"points": 4
+		},
+		{
+			"color": "green",
+			"level": 3,
+			"cost": [3,3,0,3,5],
+			"points": 3
+		},
+		{
+			"color": "brown",
+			"level": 3,
+			"cost": [0,7,0,0,0],
+			"points": 4
+		},
+		{
+			"color": "red",
+			"level": 3,
+			"cost": [0,3,7,0,0],
+			"points": 5
+		},
+		{
+			"color": "brown",
+			"level": 3,
+			"cost": [0,7,0,3,0],
+			"points": 5
+		},
+		{
+			"color": "white",
+			"level": 3,
+			"cost": [0,0,0,7,0],
+			"points": 4
+		},
+		{
+			"color": "white",
+			"level": 3,
+			"cost": [0,0,0,7,3],
+			"points": 5
+		},
+		{
+			"color": "blue",
+			"level": 3,
+			"cost": [3,0,0,3,6],
+			"points": 4
+		}
+	],
+	"nobles": [
+		{
+			"cost": [0,0,0,4,4],
+			"points": 3
+		},
+		{
+			"cost": [3,0,3,0,3],
+			"points": 3
+		},
+		{
+			"cost": [4,0,4,0,0],
+			"points": 3
+		},
+		{
+			"cost": [3,0,0,3,3],
+			"points": 3
+		},
+		{
+			"cost": [0,4,0,4,0],
+			"points": 3
+		},
+		{
+			"cost": [3,3,3,0,0],
+			"points": 3
+		},
+		{
+			"cost": [4,0,0,0,4],
+			"points": 3
+		},
+		{
+			"cost": [0,3,3,3,0],
+			"points": 3
+		},
+		{
+			"cost": [0,4,4,0,0],
+			"points": 3
+		},
+		{
+			"cost": [0,3,0,3,3],
+			"points": 3
+		}
+	]
+}
