@@ -239,12 +239,6 @@
 			"level": 1,
 			"cost": [0,0,0,2,1],
 			"points": 0
-		},
-		{
-			"color": "red",
-			"level": 1,
-			"cost": [0,0,0,2,1],
-			"points": 0
 		}
 	],
 	"tier2": [
