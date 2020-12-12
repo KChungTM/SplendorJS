@@ -1,5 +1,4 @@
-function initGame(){
-    // INITALIZE GAME OBJECT
+async function initGame(){ 
     const Game = {
         // INITALIZE PLAYER ATTRIBUTES
         players :   [
@@ -28,6 +27,23 @@ function initGame(){
                                     }
                         }
                     ],
+        
+        // INITIALIZE DECK
+        // ==========================================
+        // CALLS "importDeck()" TO GET DECK FROM JSON
+        // ATTR: ["tier1"]["tier2"]["tier3"]["nobles"]
+        deck : await importDeck(),
+        
+        board : [
+                    [null, null, null, null],
+                    [null, null, null, null],
+                    [null, null, null, null]
+                ],
+
+        nobles : [null, null, null],
+
+        allCardsHTML : document.querySelectorAll(".cardContent"),
+
         // SCRAPS THE TOKEN TABLE
         tokens : document.querySelectorAll(".gem"),
 
@@ -36,6 +52,8 @@ function initGame(){
         activePlayer : 0,
         actionTaken : false,
         actionQueue : [],
+        colorOrder : ["blue", "red", "green", "white", "brown"],
+        rgbValues : [[56,162,238],[249,54,62],[21,187,123],[81,55,61],[255,252,246]],
         tokenCount : {wild: 4, blue: 4, red: 4, green: 4, brown: 4, white: 4},
         canTakeTwo : {wild: true, blue: true, red: true, green: true, brown: true, white: true},
         actionLabel : document.querySelector(".actionLabel"),
@@ -67,6 +85,28 @@ function initGame(){
                                             }
                                         });
                                     },
+
+        updateBoard : function(){
+                            let cardElementIndex = 11;
+                            this.board.forEach((row) =>{
+                                row.forEach((card) =>{
+                                    let tokenCostHTML = "";
+                                    for(let index = 0; index<5; index++){
+                                        if(card.cost[index] > 0)
+                                            tokenCostHTML = tokenCostHTML + `<div class=\"${this.colorOrder[index]} price\">${card.cost[index]}</div>\n`;
+                                    }
+
+                                    this.allCardsHTML[cardElementIndex].children[0].firstElementChild.textContent = card.points;
+                                    this.allCardsHTML[cardElementIndex].children[1].innerHTML = tokenCostHTML;
+
+                                    for(let color in this.colorOrder){
+                                        this.allCardsHTML[cardElementIndex].classList.remove(color);
+                                    }
+                                    this.allCardsHTML[cardElementIndex].style.backgroundColor = "rgb(" + this.rgbValues[this.colorOrder.indexOf(card.color)].join(",") + ")";
+                                    cardElementIndex--;
+                                });
+                            });
+                        },
         
         actionValid : function(action){
                                         if(!this.actionTaken){
@@ -82,43 +122,52 @@ function initGame(){
                                     },
 
         canTakeToken : function(tokenType){
-                                            if(this.actionQueue.length >= 3){
-                                                this.actionTaken = true;
-                                                return false;
-                                            }
-                                            else if(this.tokenCount[tokenType] <= 0){
-                                                this.updateAction(`There are no more ${tokenType.toUpperCase()} gems left!`);
-                                                return false;
-                                            }
-                                            else if(this.players[this.activePlayer]["totalGems"] >= 10){
-                                                this.updateAction(`Player ${this.activePlayer+1} has too many gems!`);
-                                                return false;
-                                            }
-                                            else if(this.actionQueue.includes(tokenType)){
-                                                if(this.canTakeTwo[tokenType] && this.actionQueue.length < 2){
-                                                    this.actionTaken = true;
-                                                    return true;
-                                                }
-                                                this.updateAction(`Can't Take Two!`);
-                                                return false;
-                                            }
-                                            return true;
-                                        },
+                        if(this.actionQueue.length >= 3){
+                            this.actionTaken = true;
+                            return false;
+                        }
+                        else if(this.tokenCount[tokenType] <= 0){
+                            this.updateAction(`There are no more ${tokenType.toUpperCase()} gems left!`);
+                            return false;
+                        }
+                        else if(this.players[this.activePlayer]["totalGems"] >= 10){
+                            this.updateAction(`Player ${this.activePlayer+1} has too many gems!`);
+                            return false;
+                        }
+                        else if(this.actionQueue.includes(tokenType)){
+                            if(this.canTakeTwo[tokenType] && this.actionQueue.length < 2){
+                                this.actionTaken = true;
+                                return true;
+                            }
+                            this.updateAction(`Can't Take Two!`);
+                            return false;
+                        }
+                        return true;
+                    },
 
         withdrawToken : function(tokenType){
-                                // DEBUGGGING INFORMATION
-                                console.log(`Player:${this.activePlayer+1} | Gem:${tokenType}`);
-                                
-                                // UPDATES ACTION BOARD
-                                this.updateAction(`Player ${this.activePlayer+1} has taken a ${tokenType.toUpperCase()} token!`)
+                            // DEBUGGGING INFORMATION
+                            console.log(`Player:${this.activePlayer+1} | Gem:${tokenType}`);
+                            
+                            // UPDATES ACTION BOARD
+                            this.updateAction(`Player ${this.activePlayer+1} has taken a ${tokenType.toUpperCase()} token!`)
 
-                                // UPDATES COUNTERS IN JS
-                                this.tokenCount[tokenType] -= 1;
-                                this.players[this.activePlayer]["totalGems"] += 1
-                                this.players[this.activePlayer]["gems"][tokenType] += 1;
-                                this.actionQueue.push(tokenType);
-                                console.log(`ACTION QUEUE: ${this.actionQueue}`);
-                            },
+                            // UPDATES COUNTERS IN JS
+                            this.tokenCount[tokenType] -= 1;
+                            this.players[this.activePlayer]["totalGems"] += 1
+                            this.players[this.activePlayer]["gems"][tokenType] += 1;
+                            this.actionQueue.push(tokenType);
+                            console.log(`ACTION QUEUE: ${this.actionQueue}`);
+                        },
+
+        drawCard : function(tier, position){
+                        let cardIndex = Math.floor(Math.random() * this.deck[tier].length);
+                        let card = this.deck[tier][cardIndex];
+
+                        this.deck[tier] = this.deck[tier].slice(0,cardIndex).concat(this.deck[tier].slice(cardIndex+1));
+
+                        this.board[parseInt(tier.slice(-1))-1][position] = card
+                    },
 
         endTurn : function(){
                             // RESETS CONDITIONS AND INCREMENTS TURNS
@@ -148,19 +197,37 @@ function initGame(){
                                 } 
                             },
     };
+    // GAME OBJECTS
+    function card(color, level, cost, points){
+        this.color = color;
+        this.level = level;
+        this.cost = cost;
+        this.points = points;
+    }
+    
+    // NOBLE OBJECT
+    function noble(cost){
+        this.cost = cost,
+        this.points = 3
+    }
+
     
     // INITALIZE GAME BOARD
     // ====================
     addTokenListener(Game);
+    addCardListener(Game);
+    addCardBoardListener(Game);
     addTurnListener(Game);
     addUndoListener(Game);
-    loadCards();   
+    loadCards(Game); 
+    Game.updateBoard();  
+    console.log(Game.allCardsHTML);
 }
 
 function addTokenListener(game){
     buttons = document.querySelectorAll(".gem");
     buttons.forEach((button) => {
-        button.addEventListener("click", (e) =>{
+        button.addEventListener("click", (e) => {
             tokenType = e.target.classList[0];
             if(game.actionValid(tokenType)){
                 if(game.canTakeToken(tokenType)){
@@ -175,6 +242,27 @@ function addTokenListener(game){
         })
     });
     console.log("Initialized Bank...")
+}
+
+function addCardListener(game){
+    cards = document.querySelectorAll(".gemCard.card");
+    cards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+            e.target.style.border = "0.17vw solid limegreen";
+        });
+    });
+}
+
+function addCardBoardListener(game){
+    cardBoard = document.querySelector("div.boardCards");
+    cardBoard.addEventListener("click", (e) => {
+        for(let row of cardBoard.children){
+            for(let card of row.firstElementChild.children){
+                if(!(card === e.target))        
+                    card.style.border = "unset";
+            };
+        };
+    });
 }
 
 function addTurnListener(game){
@@ -195,10 +283,22 @@ function addUndoListener(game){
     console.log("Initialized Undo Button");
 }
 
-
-function loadCards(){
+function loadCards(game){
     // Initalizes board with cards
-    console.log(`Not yet implemented: ${arguments.callee.name}()`);
+    cards = document.querySelectorAll(".gemCard");
+    cards.forEach((card) => {
+        let tier = card.classList[0], position = parseInt(card.classList[1].slice(-1))-1;
+            game.drawCard(tier, position);
+    });
+    console.log(game.board);
+}
+
+async function importDeck(){
+    let deck;
+    await fetch("./cardWrite/masterDeck.json").then(response => response.json()).then(importDeck =>{
+        deck = importDeck;
+    });
+    return deck
 }
 
 initGame();
