@@ -5,6 +5,8 @@ Hello to whoever may be reading this! This is a quick project I thought I'd make
  
 So far I've implemented turn by turn token selection, an end turn button, and an undo button. As of my last update, I created a program to enter the card information into, which stores the data as a JSON file that I will access later. I still have a lot of work to do with implementing cards, reserving, score checking, noble checking, etc.
 
+In the directory <b>cardWrite</b> you will find the base game cards and nobles! Feel free to add more by running the <b>writer.js</b> file! I did add some conditions to maintain game balance however...
+
  <h4>TAKEAWAYS:</h4>
  HTML: Using Bootstrap, Refresher<br>
  CSS: Refresher<br>
