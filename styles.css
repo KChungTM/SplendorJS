@@ -20,8 +20,51 @@ h3.score2{
     margin-right: 4vw;
 }
 
+.actionBanner{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 0.5%;
+}
+
 /* GAME BOARD */
 /* ========== */
+.reserved{
+    flex-direction: column;
+}
+
+.reserveCard{
+    visibility: hidden;
+}
+.reservePrice{
+    display: flex;
+    border-radius: 50%;
+    text-align: center;
+    height: 1.75vw;
+    width: 1.75vw;
+    background-color: red;
+    margin-left: 0.25vw;
+    margin-right: 0.25vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+    align-items: center;
+    justify-content: center;
+    border: 0.05vw solid black;
+}
+
+.reservePoints{
+    display: flex;
+    border-radius: 50%;
+    text-align: center;
+    height: 1.75vw;
+    width: 1.75vw;
+    margin-left: 0.25vw;
+    margin-right: 0.25vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+    align-items: center;
+    justify-content: center;
+}
+
 .gem{
     margin-right: 1vw;
     margin-left: 1vw;
@@ -61,7 +104,6 @@ h3.score2{
     height: 1.5vw;
     border-radius: 50%;
     border: 0.005vw solid black;
-    background-color: red; 
 }
 
 .row{
@@ -79,11 +121,35 @@ h3.score2{
 }
 
 .gemCard{
-    height: 19vh;
+    height: 19.75vh;
     width: 7.5vw;
 }
+
+.requirement{
+    height:75%;
+    width:15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #15BB7B;
+    margin-left:2.5%;
+    margin-right:2.5%;
+    border: 0.05vw solid black;
+}
+
+.noblePoints{
+    height:75%;
+    width:15%;
+    font-size: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFE349;
+    border: 0.05vw solid black;
+}
+
 .nobleCard{
-    height: 8vh;
+    height: 6vh;
     width: 12vw;
     padding-top: 0.25vh;
 }
@@ -91,7 +157,7 @@ h3.score2{
 /* PLAYER BOARDS */
 /* ============= */
 .playerCard{
-    height: 15%;
+    height: 12.5%;
     margin-top: 2vh;
     margin-bottom: 2vh;
     text-align: center;
