@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <title>Shitty Splendor</title>
+    <title>Splendor</title>
 </head>
 <body>
     <!-- TOP BANNER -->
@@ -14,7 +14,7 @@
         <button class="topButt undo">UNDO</button>
         <div class="intro text-center pt-1">
             <div class="container">
-                <h3 class="title text-white display-5">SHITTY SPLENDOR</h3>
+                <h3 class="title text-white display-5">SPLENDOR</h3>
             </div>
         </div>
         <button class="topButt endTurn">END TURN</button>
@@ -22,8 +22,10 @@
     </div>
 
     <!-- ACTION LABEL -->
-    <div class="bg-dark">
+    <div class="actionBanner bg-dark d-flex justify-content-between">
+        <button class="reserve">RESERVE</button>
         <h4 class="actionLabel text-white text-center m-0 pt-2">Player 1's Turn</h4>
+        <button class="buy">BUY CARD</button>
     </div>
     
     <!-- GAME BOARD -->
@@ -37,34 +39,58 @@
             <!-- Player 1 Cards -->
             <!-------------------->
             <div class="cards col-8 align-self-center">
+
+                <!-- Player 1 Reserve -->
+                <!---------------------->
+                <div class="reserved bg-light d-flex justify-content-center">
+                    <button type="button" class="reserveCard card1 btn d-flex justify-content-center rounded-0">
+                        <div class="reservePrice">1</div>
+                        <div class="reservePrice">2</div>
+                        <div class="reservePrice">3</div>
+                        <div class="reservePoints">5</div>
+                    </button>
+                    <button type="button" class="reserveCard card2 btn d-flex justify-content-center rounded-0">
+                        <div class="reservePrice">1</div>
+                        <div class="reservePrice">2</div>
+                        <div class="reservePrice">3</div>
+                    </button>
+                    <button type="button" class="reserveCard card3 btn d-flex justify-content-center rounded-0">
+                        <div class="reservePrice">1</div>
+                        <div class="reservePrice">2</div>
+                        <div class="reservePrice">3</div>
+                    </button>
+                </div>
+
+                <!-- Player 1 Cards -->
+                <!---------------------->
                 <div class="playerCard blue card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Blue</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
                 <div class="playerCard red card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Red</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
                 <div class="playerCard green card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Green</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
                 <div class="playerCard brown card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Brown</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
                 <div class="playerCard white card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">White</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
             </div>
 
-            <!-- Player One Gems-->
+            <!-- Player 1 Gems-->
             <!-------------------->
             <div class="tokens col-4 align-self-center">
                 <button type="button" disabled class="wild playerGem">0</button>
@@ -79,6 +105,7 @@
         <!-- Game Board -->
         <!--============-->
         <div class="board container mt-3 w-50">
+
             <!-- Gems -->
             <div class="bank text-center py-2">
                 <div class="gems container d-inline-flex justify-content-center">
@@ -95,19 +122,28 @@
             <!------------>
             <div class="cardRow nobles text-center">
                 <div class="container d-inline-flex justify-content-center">
-                    <div class="nobleCard boardCard card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 1</h5>
+                    <div class="noble1 nobleCard boardCard card">
+                        <div class="card-body d-flex justify-content-center align-items-center p-0">
+                            <div class="requirement">1</div>
+                            <div class="requirement">2</div>
+                            <div class="requirement">3</div>
+                            <div class="noblePoints">5</div>
                         </div>
                     </div>
-                    <div class="nobleCard boardCard card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 1</h5>
+                    <div class="noble2 nobleCard boardCard card">
+                        <div class="card-body d-flex justify-content-center align-items-center p-0">
+                            <div class="requirement">1</div>
+                            <div class="requirement">2</div>
+                            <div class="requirement">3</div>
+                            <div class="noblePoints">5</div>
                         </div>
                     </div>
-                    <div class="nobleCard boardCard card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 1</h5>
+                    <div class="noble3 nobleCard boardCard card">
+                        <div class="card-body d-flex justify-content-center align-items-center p-0">
+                            <div class="requirement">1</div>
+                            <div class="requirement">2</div>
+                            <div class="requirement">3</div>
+                            <div class="noblePoints">5</div>
                         </div>
                     </div>
                 </div>
@@ -290,29 +326,52 @@
             <!-- Player 2 Cards -->
             <!-------------------->
             <div class="cards col-8 align-self-center">
+
+                <!-- Player 2 Reserve -->
+                <!---------------------->
+                <div class="reserved bg-light d-flex justify-content-center">
+                    <button type="button" class="reserveCard card1 btn d-flex justify-content-center rounded-0">
+                        <div class="reservePrice">1</div>
+                        <div class="reservePrice">2</div>
+                        <div class="reservePrice">3</div>
+                    </button>
+                    <button type="button" class="reserveCard card2 btn d-flex justify-content-center rounded-0">
+                        <div class="reservePrice">1</div>
+                        <div class="reservePrice">2</div>
+                        <div class="reservePrice">3</div>
+                    </button">
+                    <button type="button" class="reserveCard card3 btn d-flex justify-content-center rounded-0">
+                        <div class="reservePrice">1</div>
+                        <div class="reservePrice">2</div>
+                        <div class="reservePrice">3</div>
+                    </button>
+                </div>
+
+                <!-- Player 2 Cards -->
+                <!---------------------->
                 <div class="playerCard blue card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Blue</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
                 <div class="playerCard red card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Red</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
                 <div class="playerCard green card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Green</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
                 <div class="playerCard brown card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Brown</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
                 <div class="playerCard white card rounded-0">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">White</h5>
+                        <h5 class="card-title">0</h5>
                     </div>
                 </div>
             </div>
