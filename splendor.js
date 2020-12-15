@@ -328,6 +328,7 @@ function addUndoListener(game){
     console.log("Initialized Undo Button...")
 }
 
+// BUY BUTTON LISTENER FUNCTION:
 function addBuyListener(game){
     buyButton.addEventListener("click", (e) =>{
         console.log(game.selectedCard)
@@ -463,6 +464,7 @@ function addBuyListener(game){
     });
 }
 
+// RESERVE BUTTON LISTENER FUNCTION:
 function addReserveListener(game){
     reserve.addEventListener("click", (e) =>{
         console.log("Call to Reserve Butt")
@@ -506,6 +508,7 @@ function addReserveListener(game){
     });
 }
 
+// RESERVE CARDS LISTENER FUNCTION:
 function addReserveCardListener(game){
     player1ReserveCards.forEach((card) =>{
         card.addEventListener("click", (e) =>{
@@ -539,6 +542,7 @@ function addReserveCardListener(game){
     });
 }
 
+// CARD LISTENER FUNCTION:
 function addCardListener(game){
     boardCards.forEach((card) =>{
         card.addEventListener("click", (e) =>{
@@ -552,6 +556,7 @@ function addCardListener(game){
     console.log("Initialized Card Listener...")
 }
 
+// CARD BOARD LISTENER FUNCTION:
 function addCardBoardListener(game){
     board.addEventListener("click", (e) =>{
        if(e.target.classList[2] === "gemCard")
@@ -569,6 +574,7 @@ function addCardBoardListener(game){
 // UPDATING CONTENT WITHIN GAME
 // ============================
 
+// UPDATE THE BANK:
 function updateBankTokens(game){
     for(let i = 1; i<6; i++){
         bankGems.children[i].textContent = game.tokenCount[i];
@@ -576,6 +582,7 @@ function updateBankTokens(game){
     bankGems.children[0].textContent = game.tokenCount[0];
 }
 
+// UPDATE THE "takeTwo" ARRAY:
 function updateCanTakeTwo(game){
     for(let i = 1; i<6; i++){
         if(game.tokenCount[i] === 4)
@@ -585,6 +592,7 @@ function updateCanTakeTwo(game){
     }
 }
 
+// UPDATE PLAYER TOKENS:
 function updatePlayerTokens(game){
     if(game.activePlayer == 0){
         for(let token of player1Tokens.children){
@@ -598,6 +606,7 @@ function updatePlayerTokens(game){
     }
 }
 
+// UPDATE PLAYER GEM CARDS:
 function updatePlayerCards(game){
     if(game.activePlayer == 0){
         for(let card of player1Cards){
@@ -611,10 +620,12 @@ function updatePlayerCards(game){
     }
 }
 
+// UPDATES TOP BANNER FOR MESSAGES:
 function updateActionBanner(message){
     actionBanner.textContent = message;
 }
 
+// UPDATES THE CARD BOARD:
 function updateCardBoard(game){
     boardCards.forEach((children) =>{
         let tier = parseInt(children.classList[0].slice(-1))-1;
@@ -651,6 +662,7 @@ function updateCardBoard(game){
     });
 }
 
+// UPDATE NOBLES:
 function updateNobles(game){
     for(let i = 0; i<3; i++){
         let newNobleHTML = "";
@@ -666,6 +678,7 @@ function updateNobles(game){
     }
 }
 
+// UPDATE PLAYER SCORE:
 function updatePlayerScore(game){
     if(game.activePlayer == 0){
         player1Score.textContent = `Player 1 : ${game.players[game.activePlayer]["points"]}`;
@@ -675,6 +688,7 @@ function updatePlayerScore(game){
     }
 }
 
+// UPDATE RESERVE QUEUE:
 function updateReserves(game){
     console.log("call to update reserves");
     console.log(game.reservedCard);
@@ -736,6 +750,8 @@ function updateReserves(game){
 // ======================
 // CHECK VALID CONDITIONS
 // ======================
+
+// VALID TOKEN PICKUP?
 function validTokenPickup(game, tokenType, tokenIndex){
     if(game.actionTaken){
         updateActionBanner(`You've Already Done An Action!`);
@@ -769,6 +785,7 @@ function validTokenPickup(game, tokenType, tokenIndex){
     return true;
 }
 
+// VALID CARD PURCHASE?
 function validCardPurchase(game){
     if(game.actionQueue.length == 0){
         let cardCost = game.selectedCard[0].cost.slice();
@@ -808,7 +825,8 @@ function validCardPurchase(game){
 // GAME ACTIONS
 // ============
 
-// FUNCTION: drawCard(<game>) | RETURNS : card <object>
+// DRAWS CARD FROM DECK
+// (RETURNS <card object>)
 function drawCard(game, tier){
     tier = "tier" + (tier+1);
     if(game.deck[tier].length > 0){
@@ -824,6 +842,7 @@ function drawCard(game, tier){
     }
 }
 
+// ADDS CARD TO DESIRED POSITION
 function addCard(game, tier, position){
     let card = drawCard(game, tier)
     game.board[tier][position] = card;
@@ -852,6 +871,7 @@ function addCard(game, tier, position){
     }
 }
 
+// CHECKS NOBLES
 function checkNobles(game){
         let removedOne = false;
         for(let i = 0; i<game.nobles.length; i++){
@@ -879,6 +899,7 @@ function checkNobles(game){
         }     
 }
 
+// GET ACTIVE PLAYERS TOTAL TOKENS
 function getTotalGems(game){
     let sum = 0
     for(let i = 0; i<5; i++)
@@ -890,6 +911,8 @@ function getTotalGems(game){
 // ======================
 // INITIAL LOAD FUNCTIONS
 // ======================
+
+// LOAD DECK FROM JSON FILE
 async function importDeck(){
     let deck;
     await fetch("./cardWrite/masterDeck.json").then(response => response.json()).then(importDeck =>{
@@ -898,6 +921,7 @@ async function importDeck(){
     return deck
 }
 
+// LOAD CARDS FROM DECK AND DISPLAYS
 function loadCards(game){
     for(let tier = 0; tier<3; tier++){
         for(let col = 0; col<4; col++){
@@ -908,6 +932,7 @@ function loadCards(game){
     console.log("Initial Board Cards:", game.board);
 }
 
+// LOADS NOBLES FROM DECK AND DISPLAYS
 function loadNobles(game){
     for(let i = 0; i<3; i++){
         let nobleIndex = Math.floor(Math.random() * game.deck["nobles"].length);
