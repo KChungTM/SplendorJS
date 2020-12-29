@@ -13,7 +13,7 @@ In the directory <b>cardWrite</b> you will find the base game cards and nobles! 
  JavaScript: Promises, Async/Await, JSON Data Storage, Object Manipulation, Function Scopes<br>
  
   <h4>REVISIONS:</h4>
-  - Better use of Event Bubbling to handle adding Event Listeners to the cards.
+  - Better use of Event Bubbling to handle adding Event Listeners to the cards. Instead of attaching individual listeners to cards, I could have attached a listener to the entire board.
  
 <h5>P.S:</h5>
 I hope the window works ok for whoever decides to play it. I looks fine on my screen but my knowledge of breakpoints and sizing HTML elements proportionally is pretty abysmal so knock yourself out. The reserve -> buy is also a bit wonky at times as it won't properly listen to mouse clicks. (If this happens, just click the card in the reserve queue again and then click the buy button!)
